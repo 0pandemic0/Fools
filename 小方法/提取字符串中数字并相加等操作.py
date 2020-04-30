@@ -3,14 +3,18 @@
 fruits = '苹13，梨11，瓜251个，10，桃1999个'
 import re
 from functools import reduce
-#提取数字返回list
+
+# 提取数字返回list
 def list_return(fruits):
-    return list(map(int,re.sub(r'\D',' ',fruits).split()))
+    return list(map(int, re.sub(r'\D', ' ', fruits).split()))
 
-#类加,传入list
+# 类乘,传入list
+def multiply(x):
+    return reduce(lambda a, b: a * b, x)
+
+# 类加,传入list
 def add(x):
-    return reduce(lambda a,b:a+b,x)
+    return reduce(lambda a, b: a + b, x)
 
-
-
-
+print(multiply(list_return(fruits)))  # 相乘
+print(add(list_return(fruits)))  # 相加
